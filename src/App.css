@@ -1,0 +1,50 @@
+
+nav{
+  background-color: paleturquoise;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+
+#transactions-list{
+  background-color: rgb(172, 218, 129);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+#transactions-list li {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#list-heading{
+  font-size: 20px;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: rgb(187, 149, 212);
+}
+
+#new-input-form{
+  display: flex;
+  flex-direction: column;
+  /* width: 200px;
+  height: 50px; */
+}
+
+#new-transactions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#test-date{
+  width: 200px;
+}
+
+
