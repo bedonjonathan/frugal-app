@@ -3,6 +3,7 @@ import Navbar from "./Components/NavBar"
 import Transactions from "./Components/Transactions";
 import NewTransaction from "./Components/NewTransaction";
 import Show from "./Components/Show";
+import Home from "./Components/Home"
 
 import { Switch, Route } from "react-router-dom";
 import './App.css';
@@ -12,7 +13,10 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <main>
-        <Switch>
+      <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
           <Route exact path="/transactions">
             <Transactions/>
           </Route>
