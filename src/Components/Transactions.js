@@ -1,22 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { apiURL } from "../Util/apiURL";
-const API = apiURL();
 
-function Transactions() {
-  const [transactionsArray, setTransactionsArray] = useState([]);
-
-  const fetchTransactions = async () => {
-    try {
-      const res = await axios.get(`${API}/transactions`);
-      setTransactionsArray(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+function Transactions({transactionsArray}) {
 
   const createTotal = (transactionsArray) => {
     let sum = 0;
@@ -24,12 +10,7 @@ function Transactions() {
       sum += Number(transaction.amount);
     });
     return sum.toLocaleString("us-US", { style: "currency", currency: "USD" });
-  };
-
-  useEffect(() => {
-    fetchTransactions();
-  }, []);
-  
+  };  
   return (
     <div>
       <h2>Total Transactions: {transactionsArray.length}</h2>

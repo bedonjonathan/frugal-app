@@ -23,7 +23,7 @@ function NewTransaction() {
 
   const createTransaction = async () => {
     try {
-      const res = await axios.post(`${API}/transactions`, newTransaction);
+      await axios.post(`${API}/transactions`, newTransaction);
       history.push("/transactions");
     } catch (err) {
       console.log(err);

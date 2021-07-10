@@ -34,8 +34,8 @@ nav{
 #new-input-form{
   display: flex;
   flex-direction: column;
-  /* width: 200px;
-  height: 50px; */
+  padding: 20px;
+  border: solid 3px rgb(99, 122, 65);
 }
 
 #new-transactions{
@@ -47,4 +47,31 @@ nav{
   width: 200px;
 }
 
+#show-component{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+#show-section{
+  width: 300px;
+  border: 5px solid rgb(99, 122, 65);
+  margin: 30px;
+}
+#transaction-details{
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  font-size: large;
+  margin: 20px;
+}
+#transaction-options{
+  display: flex;
+align-items: center;
+justify-content: center;
+justify-content: space-around;
+  margin: 20px;
+}
 

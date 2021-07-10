@@ -1,13 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import { apiURL } from "../Util/apiURL";
 const API = apiURL();
 
-function Show() {
+function Show({ deleteTransaction, transactionsArray }) {
   const [transaction, setTransaction] = useState({});
+
   let { index } = useParams();
   let history = useHistory();
 
@@ -21,11 +22,35 @@ function Show() {
     }
   };
 
+  const handleDelete = () => {
+    deleteTransaction(index);
+    history.push("/transactions");
+  };
+
+  const handleGoBack = () =>{
+    history.push("/transactions");
+  }
+
   useEffect(() => {
     fetchTransaction();
   }, []);
 
-  return <div>{transaction ? transaction.name : null}</div>;
+  return (
+    <div id="show-component">
+      <section id="show-section">
+        <section id="transaction-details">
+          <div>Name: {transaction ? transaction.name : null}</div>
+          <div>Date: {transaction ? transaction.date : null}</div>
+          <div> Amount: ${transaction ? transaction.amount : null}</div>
+          <div> From: {transaction ? transaction.from : null}</div>
+        </section>
+        <section id="transaction-options">
+          <button onClick={handleGoBack}>Go back</button>
+          <button onClick={handleDelete}>Delete</button>
+        </section>
+      </section>
+    </div>
+  );
 }
 
 export default Show;
