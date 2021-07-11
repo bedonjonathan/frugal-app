@@ -36,10 +36,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchTransactions();
-  }, []);
-
   return (
     <div className="App">
       <Navbar></Navbar>
@@ -49,7 +45,7 @@ function App() {
             <Home/>
           </Route>
           <Route exact path="/transactions">
-            <Transactions transactionsArray={transactionsArray}/>
+            <Transactions transactionsArray={transactionsArray} fetchTransactions={fetchTransactions}/>
           </Route>
           <Route exact path="/transactions/new">
             <NewTransaction/>

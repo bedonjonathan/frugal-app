@@ -12,6 +12,7 @@ function NewTransaction() {
     from: "",
     amount: 0,
   });
+  
   let history = useHistory();
 
   const handleChange = (e) => {

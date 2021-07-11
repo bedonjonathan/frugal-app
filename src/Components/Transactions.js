@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-
-function Transactions({transactionsArray}) {
+function Transactions({transactionsArray, fetchTransactions}) {
 
   const createTotal = (transactionsArray) => {
     let sum = 0;
@@ -10,7 +10,11 @@ function Transactions({transactionsArray}) {
       sum += Number(transaction.amount);
     });
     return sum.toLocaleString("us-US", { style: "currency", currency: "USD" });
-  };  
+  };
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
   return (
     <div>
       <h2>Total Transactions: {transactionsArray.length}</h2>
